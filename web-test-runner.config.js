@@ -88,6 +88,8 @@ export default {
   rootDir: '.',
   files: ['./test/**/*_test.js'],
   nodeResolve: true,
+  sslKey: './localhost-key.pem',
+  sslCert: './localhost.pem',
   preserveSymlinks: true,
   browsers: commandLineBrowsers ?? Object.values(browsers),
   testFramework: {

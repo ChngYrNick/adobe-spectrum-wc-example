@@ -5,7 +5,6 @@
  */
 
 import {LitElement, html, css} from 'lit';
-
 /**
  * An example element.
  *
@@ -40,7 +39,7 @@ export class MyElement extends LitElement {
 
   constructor() {
     super();
-    this.name = 'World';
+    this.name = 'Honda Civic 1.3 2009';
     this.count = 0;
   }
 

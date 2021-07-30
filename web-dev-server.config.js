@@ -9,6 +9,9 @@ import {legacyPlugin} from '@web/dev-server-legacy';
 export default {
   nodeResolve: true,
   preserveSymlinks: true,
+  http2: true,
+  sslKey: './localhost-key.pem',
+  sslCert: './localhost.pem',
   plugins: [
     legacyPlugin({
       polyfills: {
