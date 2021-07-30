@@ -24,3 +24,5 @@ To start this app simply run:
 ```bash
 npm run serve
 ```
+
+And open <https://localhost:8000/dev> to view it in the browser.
