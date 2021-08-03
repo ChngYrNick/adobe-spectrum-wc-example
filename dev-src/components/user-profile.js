@@ -1,24 +1,19 @@
-import {LitElement, html, css} from 'lit';
+import {LitElement, html} from 'lit';
 import {firebase} from '../services/firebase.js';
 import {localStorageSvc} from '../services/localStorage.js';
 
-export class UserProfile extends LitElement {
-  static get styles() {
-    return css`
-      :host {
-        display: block;
-        border: solid 1px gray;
-        padding: 16px;
-        max-width: 800px;
-      }
-    `;
-  }
+import '@spectrum-web-components/card/sp-card';
+import '@spectrum-web-components/menu/sp-menu-item.js';
+import '@spectrum-web-components/menu/sp-menu-divider.js';
+import '@spectrum-web-components/action-menu/sp-action-menu.js';
 
+export class UserProfile extends LitElement {
   static get properties() {
     return {
       name: {type: String},
       email: {type: String},
       provider: {type: String},
+      photoURL: {type: String},
     };
   }
 
@@ -27,14 +22,16 @@ export class UserProfile extends LitElement {
     this.name = 'Anonym';
     this.email = '';
     this.provider = '';
+    this.photoURL = '';
 
     firebase.auth().onAuthStateChanged((user) => user && this.setUser(user));
   }
 
-  setUser({displayName, email, providerData}) {
+  setUser({displayName, email, providerData, photoURL}) {
     this.name = displayName;
     this.email = email;
     this.provider = providerData[0].providerId;
+    this.photoURL = photoURL;
   }
 
   _onClick() {
@@ -52,11 +49,13 @@ export class UserProfile extends LitElement {
 
   render() {
     return html`
-      <h1>Hello, ${this.name}!</h1>
-      <p>Email: ${this.email}</p>
-      <hr />
-      <p>Provider: ${this.provider}</p>
-      <button @click=${this._onClick} part="button">Logout</button>
+      <sp-card heading=${this.name} subheading=${this.email}>
+        <img slot="cover-photo" src=${this.photoURL} alt="Profile Image" />
+        <div slot="footer">${this.provider}</div>
+        <sp-action-menu slot="actions" placement="bottom-end">
+          <sp-menu-item @click=${this._onClick}>Logout</sp-menu-item>
+        </sp-action-menu>
+      </sp-card>
     `;
   }
 }
