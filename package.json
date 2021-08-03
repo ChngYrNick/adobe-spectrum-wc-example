@@ -43,7 +43,8 @@
     "firebase": "^8.8.0",
     "firebaseui": "^4.8.1",
     "lit": "^2.0.0-rc.1",
-    "lit-element": "^3.0.0-rc.1"
+    "lit-element": "^3.0.0-rc.1",
+    "lit-element-router": "^2.0.3"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",

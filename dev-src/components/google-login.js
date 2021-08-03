@@ -1,10 +1,6 @@
-/**
- * @license Copyright 2019 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */
-
 import {LitElement, html, css} from 'lit';
-import {firebase, googleProvider} from './firebase.js';
+import {localStorageSvc} from '../services/localStorage.js';
+import {firebase, googleProvider} from '../services/firebase.js';
 
 export class GoogleLogin extends LitElement {
   static get styles() {
@@ -43,14 +39,9 @@ export class GoogleLogin extends LitElement {
       .auth()
       .signInWithPopup(googleProvider)
       .then((result) => {
-        const user = result.user;
-        const userProfile = document.getElementsByTagName('user-profile')[0];
-        userProfile.setUser({
-          name: user.displayName,
-          email: user.email,
-          service: 'Google',
-        });
-        console.log(user);
+        const {providerId, accessToken} = result.credential;
+        localStorageSvc.setToken(providerId, accessToken);
+        window.location.replace('https://localhost:8000/dev/');
       })
       .catch((error) => {
         console.log(error);
