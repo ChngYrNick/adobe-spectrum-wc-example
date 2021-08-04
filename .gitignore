@@ -1,6 +1,6 @@
+dist/
 node_modules/
 custom-elements.json
-# only generated for size check
-my-element.bundled.js
-firebase-config.*
+package-lock.json
+firebase-config.js
 *.pem

@@ -54,9 +54,10 @@ export class LoginOption extends LitElement {
       .auth()
       .signInWithPopup(this.provider)
       .then((result) => {
+        const {host, protocol} = window.location;
         const {providerId, accessToken} = result.credential;
         localStorageSvc.setToken(providerId, accessToken);
-        window.location.replace('https://localhost:8000/dev/');
+        window.location.replace(`${protocol}//${host}/`);
       })
       .catch((error) => {
         console.log(error);

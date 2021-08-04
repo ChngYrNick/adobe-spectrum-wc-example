@@ -1,3 +1,9 @@
+import '@spectrum-web-components/styles/all-large-light.css';
+
+import '@webcomponents/webcomponentsjs/webcomponents-loader';
+import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter';
+// import 'lit/polyfill-support';
+
 import {LitElement, html, css} from 'lit';
 
 import {firebase} from '../../services/firebase.js';
@@ -29,11 +35,12 @@ export class Home extends LitElement {
     super();
     this.isLoading = true;
     this.isAuth = false;
+    const {host, protocol} = window.location;
 
     firebase.auth().onAuthStateChanged((user) => {
       this.isLoading = false;
       if (!user) {
-        window.location.replace('https://localhost:8000/dev/sign-in');
+        window.location.replace(`${protocol}//${host}/sign-in`);
         return;
       }
       this.isAuth = true;
@@ -50,4 +57,4 @@ export class Home extends LitElement {
   }
 }
 
-window.customElements.define('home-page', Home);
+window.customElements.define('my-app', Home);

@@ -1,3 +1,9 @@
+import '../../../public/style.css';
+
+import '@webcomponents/webcomponentsjs/webcomponents-loader';
+import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter';
+// import 'lit/polyfill-support';
+
 import {LitElement, html, css} from 'lit';
 import {facebookProvider, googleProvider} from '../../services/firebase.js';
 
@@ -44,4 +50,4 @@ export class SignIn extends LitElement {
   }
 }
 
-window.customElements.define('sign-in', SignIn);
+window.customElements.define('my-app', SignIn);
