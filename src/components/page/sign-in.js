@@ -2,7 +2,6 @@ import '../../../public/style.css';
 
 import '@webcomponents/webcomponentsjs/webcomponents-loader';
 import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter';
-// import 'lit/polyfill-support';
 
 import {LitElement, html, css} from 'lit';
 import {facebookProvider, googleProvider} from '../../services/firebase.js';

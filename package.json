@@ -4,7 +4,8 @@
     "version": "0.0.0",
     "description": "A simple web component",
     "scripts": {
-        "build": "webpack --config ./webpack.config.js"
+        "build": "webpack --config ./webpack.config.prod.js",
+        "dev": "webpack serve --http2 --config ./webpack.config.dev.js"
     },
     "keywords": [
         "web-components",

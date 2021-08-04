@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const {merge} = require('webpack-merge');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
@@ -7,11 +8,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
-module.exports = {
+const baseConfig = require('./webpack.config.base.js');
+
+module.exports = merge(baseConfig, {
   mode: 'production',
   entry: {
-    home: './dev-src/components/page/home.js',
-    signin: './dev-src/components/page/sign-in.js',
+    home: './src/components/page/home.js',
+    signin: './src/components/page/sign-in.js',
   },
   output: {
     filename: './scripts/[name].[chunkhash].bundle.js',
@@ -35,14 +38,6 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
       },
     ],
   },
@@ -81,4 +76,4 @@ module.exports = {
       chunks: ['signin'],
     }),
   ],
-};
+});
