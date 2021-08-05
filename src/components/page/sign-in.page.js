@@ -4,33 +4,17 @@ import '@webcomponents/webcomponentsjs/webcomponents-loader';
 import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter';
 import '../login-option.comp.js';
 
-import {LitElement, html, css} from 'lit';
+import {LitElement, html} from 'lit';
 import {
   facebookProvider,
   googleProvider,
 } from '../../services/firebase.service.js';
 
+import styles from './sign-in.styles.js';
+
 export class SignIn extends LitElement {
   static get styles() {
-    return css`
-      :host {
-        display: block;
-        border: solid 1px gray;
-        max-width: 350px;
-        margin: 100px auto 0;
-        font-size: 1.2em;
-      }
-
-      :host > .title {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      :host > * {
-        height: 35px;
-      }
-    `;
+    return styles;
   }
   render() {
     return html`
