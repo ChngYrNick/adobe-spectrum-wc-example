@@ -16,13 +16,11 @@ Install dependencies:
 npm i
 ```
 
-Fill firebase-config.js with your credentials
-
 ## Start
 
 To start this app simply run:
 ```bash
-npm run serve
+npm run dev
 ```
 
-And open <https://localhost:8000/dev> to view it in the browser.
+And open <https://localhost:3000> to view it in the browser.
