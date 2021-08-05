@@ -1,7 +1,6 @@
 import {LitElement, html, css} from 'lit';
 
 import {firebase} from '../services/firebase.js';
-import {localStorageSvc} from '../services/localStorage.js';
 
 export class LoginOption extends LitElement {
   static get styles() {
@@ -53,10 +52,8 @@ export class LoginOption extends LitElement {
     firebase
       .auth()
       .signInWithPopup(this.provider)
-      .then((result) => {
+      .then(() => {
         const {host, protocol} = window.location;
-        const {providerId, accessToken} = result.credential;
-        localStorageSvc.setToken(providerId, accessToken);
         window.location.replace(`${protocol}//${host}/`);
       })
       .catch((error) => {

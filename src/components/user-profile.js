@@ -1,6 +1,5 @@
 import {LitElement, html} from 'lit';
 import {firebase} from '../services/firebase.js';
-import {localStorageSvc} from '../services/localStorage.js';
 
 import '@spectrum-web-components/card/sp-card';
 import '@spectrum-web-components/menu/sp-menu-item.js';
@@ -39,7 +38,6 @@ export class UserProfile extends LitElement {
       .auth()
       .signOut()
       .then(() => {
-        localStorageSvc.clearAllTokens();
         window.location.replace('https://localhost:8000/dev/sign-in');
       })
       .catch((error) => {
