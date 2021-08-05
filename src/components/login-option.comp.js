@@ -3,9 +3,7 @@ import {firebase} from '../services/firebase.service.js';
 import styles from './login-option.styles.js';
 
 export class LoginOption extends LitElement {
-  static get styles() {
-    return styles;
-  }
+  static styles = styles;
 
   static get properties() {
     return {

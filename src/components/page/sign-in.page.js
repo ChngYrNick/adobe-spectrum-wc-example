@@ -13,9 +13,8 @@ import {
 import styles from './sign-in.styles.js';
 
 export class SignIn extends LitElement {
-  static get styles() {
-    return styles;
-  }
+  static styles = styles;
+
   render() {
     return html`
       <div class="title">

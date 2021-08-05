@@ -11,13 +11,8 @@ export class UserProfile extends LitElement {
     };
   }
 
-  constructor() {
-    super();
-    this.name = 'Anonym';
-    this.email = '';
-    this.provider = '';
-    this.photoURL = '';
-
+  connectedCallback() {
+    super.connectedCallback();
     firebase.auth().onAuthStateChanged((user) => user && this.setUser(user));
   }
 
@@ -28,22 +23,24 @@ export class UserProfile extends LitElement {
     this.photoURL = photoURL;
   }
 
+  photoTemplate() {
+    return (
+      this.photoURL &&
+      html`<img slot="cover-photo" src=${this.photoURL} alt="Profile Image" />`
+    );
+  }
+
   _onClick() {
     firebase
       .auth()
       .signOut()
-      .then(() => {
-        window.location.replace('https://localhost:8000/dev/sign-in');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => console.log(error));
   }
 
   render() {
     return html`
       <sp-card heading=${this.name} subheading=${this.email}>
-        <img slot="cover-photo" src=${this.photoURL} alt="Profile Image" />
+        ${this.photoTemplate()}
         <div slot="footer">${this.provider}</div>
         <sp-action-menu slot="actions" placement="bottom-end">
           <sp-menu-item @click=${this._onClick}>Logout</sp-menu-item>
