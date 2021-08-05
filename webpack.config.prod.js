@@ -13,8 +13,8 @@ const baseConfig = require('./webpack.config.base.js');
 module.exports = merge(baseConfig, {
   mode: 'production',
   entry: {
-    home: './src/components/page/home.js',
-    signin: './src/components/page/sign-in.js',
+    home: './src/components/page/home.page.js',
+    signin: './src/components/page/sign-in.page.js',
   },
   output: {
     filename: './scripts/[name].[chunkhash].bundle.js',

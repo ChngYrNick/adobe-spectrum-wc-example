@@ -1,10 +1,5 @@
 import {LitElement, html} from 'lit';
-import {firebase} from '../services/firebase.js';
-
-import '@spectrum-web-components/card/sp-card';
-import '@spectrum-web-components/menu/sp-menu-item.js';
-import '@spectrum-web-components/menu/sp-menu-divider.js';
-import '@spectrum-web-components/action-menu/sp-action-menu.js';
+import {firebase} from '../services/firebase.service.js';
 
 export class UserProfile extends LitElement {
   static get properties() {

@@ -1,35 +1,10 @@
-import {LitElement, html, css} from 'lit';
-
-import {firebase} from '../services/firebase.js';
+import {LitElement, html} from 'lit';
+import {firebase} from '../services/firebase.service.js';
+import styles from './login-option.styles.js';
 
 export class LoginOption extends LitElement {
   static get styles() {
-    return css`
-      :host {
-        display: flex;
-        border-top: solid 1px gray;
-        align-items: center;
-      }
-
-      :host > .icon {
-        border-right: solid 1px gray;
-        width: 35px;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      :host > a {
-        padding-left: 35px;
-        font-style: italic;
-        text-decoration: none;
-      }
-
-      :host > a:hover {
-        text-decoration: underline;
-      }
-    `;
+    return styles;
   }
 
   static get properties() {

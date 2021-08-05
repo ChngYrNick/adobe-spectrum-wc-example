@@ -2,11 +2,13 @@ import '../../../public/style.css';
 
 import '@webcomponents/webcomponentsjs/webcomponents-loader';
 import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter';
+import '../login-option.comp.js';
 
 import {LitElement, html, css} from 'lit';
-import {facebookProvider, googleProvider} from '../../services/firebase.js';
-
-import '../login-option.js';
+import {
+  facebookProvider,
+  googleProvider,
+} from '../../services/firebase.service.js';
 
 export class SignIn extends LitElement {
   static get styles() {
