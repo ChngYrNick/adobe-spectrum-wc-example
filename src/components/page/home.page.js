@@ -23,28 +23,25 @@ export class Home extends LitElement {
   static get properties() {
     return {
       isLoading: {type: Boolean},
-      isAuth: {type: Boolean},
     };
   }
 
   constructor() {
     super();
     this.isLoading = true;
-    this.isAuth = false;
   }
 
   connectedCallback() {
     super.connectedCallback();
     firebase.auth().onAuthStateChanged((user) => {
       const {host, protocol} = window.location;
-      this.isLoading = false;
-      if (user) return (this.isAuth = true);
+      if (user) return (this.isLoading = false);
       window.location.replace(`${protocol}//${host}/sign-in`);
     });
   }
 
   render() {
-    if (!this.isAuth || this.isLoading) {
+    if (this.isLoading) {
       return html`<sp-progress-bar indeterminate></sp-progress-bar>`;
     }
     return html`<user-profile></user-profile> `;
