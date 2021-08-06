@@ -1,32 +1,32 @@
 import {LitElement, html} from 'lit';
-import {firebase} from '../services/firebase.service.js';
+import {customElement, property} from 'lit/decorators';
+import firebase from 'firebase';
 
-/**
- * @typedef UserDTO
- * @property {Array} param.providerData
- * @property {string} param.displayName
- * @property {string} param.email
- * @property {string} param.photoURL
- */
+interface UserDTO {
+  displayName: string;
+  email: string;
+  providerData: any[];
+  photoURL: string;
+}
 
+@customElement('user-profile')
 export class UserProfile extends LitElement {
-  static properties = {
-    name: {type: String},
-    email: {type: String},
-    provider: {type: String},
-    photoURL: {type: String},
-  };
+  @property() name = '';
+  @property() email = '';
+  @property() provider = '';
+  @property() photoURL = '';
 
   connectedCallback() {
     super.connectedCallback();
-    firebase.auth().onAuthStateChanged((user) => user && this.setUser(user));
+    firebase
+      .auth()
+      .onAuthStateChanged((user) => user && this.setUser(user as UserDTO));
   }
 
   /**
    * Set user data
-   * @param {UserDTO}
    */
-  setUser({displayName, email, providerData, photoURL}) {
+  setUser({displayName, email, providerData, photoURL}: UserDTO) {
     this.name = displayName;
     this.email = email;
     this.provider = providerData[0].providerId;
@@ -62,5 +62,3 @@ export class UserProfile extends LitElement {
     `;
   }
 }
-
-window.customElements.define('user-profile', UserProfile);
