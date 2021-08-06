@@ -15,11 +15,25 @@ export class UserProfile extends LitElement {
     email: {type: String},
     provider: {type: String},
     photoURL: {type: String},
+    isLoading: {type: Boolean},
   };
+
+  constructor() {
+    super();
+    this.name = '';
+    this.email = '';
+    this.provider = '';
+    this.photoURL = '';
+    this.isLoading = true;
+  }
 
   connectedCallback() {
     super.connectedCallback();
-    firebase.auth().onAuthStateChanged((user) => user && this.setUser(user));
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) return;
+      this.isLoading = false;
+      this.setUser(user);
+    });
   }
 
   /**
@@ -33,16 +47,6 @@ export class UserProfile extends LitElement {
     this.photoURL = photoURL;
   }
 
-  /**
-   * Render profile photo
-   */
-  photoTemplate() {
-    return (
-      this.photoURL &&
-      html`<img slot="cover-photo" src=${this.photoURL} alt="Profile Image" />`
-    );
-  }
-
   _onClick() {
     firebase
       .auth()
@@ -51,9 +55,13 @@ export class UserProfile extends LitElement {
   }
 
   render() {
+    if (this.isLoading) {
+      return html`<sp-progress-bar indeterminate></sp-progress-bar>`;
+    }
+
     return html`
       <sp-card heading=${this.name} subheading=${this.email}>
-        ${this.photoTemplate()}
+        <img slot="cover-photo" src=${this.photoURL} alt="Profile Image" />
         <div slot="footer">${this.provider}</div>
         <sp-action-menu slot="actions" placement="bottom-end">
           <sp-menu-item @click=${this._onClick}>Logout</sp-menu-item>

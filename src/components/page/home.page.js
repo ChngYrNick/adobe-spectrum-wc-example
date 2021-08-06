@@ -9,6 +9,8 @@ import '@spectrum-web-components/menu/sp-menu-divider.js';
 import '@spectrum-web-components/action-menu/sp-action-menu.js';
 import '@spectrum-web-components/progress-bar/sp-progress-bar.js';
 import '../user-profile.comp.js';
+import '../item-card.comp.js';
+import '../stock.comp.js';
 
 import {LitElement, html} from 'lit';
 
@@ -20,31 +22,16 @@ export class Home extends LitElement {
     return styles;
   }
 
-  static get properties() {
-    return {
-      isLoading: {type: Boolean},
-    };
-  }
-
-  constructor() {
-    super();
-    this.isLoading = true;
-  }
-
   connectedCallback() {
     super.connectedCallback();
     firebase.auth().onAuthStateChanged((user) => {
       const {host, protocol} = window.location;
-      if (user) return (this.isLoading = false);
-      window.location.replace(`${protocol}//${host}/sign-in`);
+      if (!user) window.location.replace(`${protocol}//${host}/sign-in`);
     });
   }
 
   render() {
-    if (this.isLoading) {
-      return html`<sp-progress-bar indeterminate></sp-progress-bar>`;
-    }
-    return html`<user-profile></user-profile> `;
+    return html`<user-profile></user-profile><stock-elem></stock-elem> `;
   }
 }
 
