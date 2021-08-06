@@ -1,6 +1,14 @@
 import {LitElement, html} from 'lit';
 import {firebase} from '../services/firebase.service.js';
 
+/**
+ * @typedef UserDTO
+ * @property {Array} param.providerData
+ * @property {string} param.displayName
+ * @property {string} param.email
+ * @property {string} param.photoURL
+ */
+
 export class UserProfile extends LitElement {
   static get properties() {
     return {
@@ -16,6 +24,11 @@ export class UserProfile extends LitElement {
     firebase.auth().onAuthStateChanged((user) => user && this.setUser(user));
   }
 
+  /**
+   * @method
+   * @param {UserDTO}
+   * @description Set user data
+   */
   setUser({displayName, email, providerData, photoURL}) {
     this.name = displayName;
     this.email = email;
@@ -23,6 +36,10 @@ export class UserProfile extends LitElement {
     this.photoURL = photoURL;
   }
 
+  /**
+   * @method
+   * @description Render profile photo
+   */
   photoTemplate() {
     return (
       this.photoURL &&
