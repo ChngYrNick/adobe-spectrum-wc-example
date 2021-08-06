@@ -1,6 +1,6 @@
 import {LitElement, html} from 'lit';
 import {customElement, property} from 'lit/decorators';
-import firebase from 'firebase';
+import {firebase} from '../services/firebase.service.js';
 
 interface UserDTO {
   displayName: string;

@@ -13,6 +13,7 @@
         "inlineSources": true,
         "outDir": "./",
         "rootDir": "./src",
+        "allowJs": true,
         "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
