@@ -1,7 +1,10 @@
 import {LitElement, html} from 'lit';
 import {firebase} from '../services/firebase.service.js';
+import styles from './stock.styles.js';
 
 export class Stock extends LitElement {
+  static styles = styles;
+
   static properties = {
     items: Array,
     isLoading: Boolean,
@@ -34,6 +37,10 @@ export class Stock extends LitElement {
   }
 
   render() {
+    if (this.isLoading) {
+      return html`<sp-progress-bar indeterminate></sp-progress-bar>`;
+    }
+
     return html`${this.items.map(
       (item) =>
         html`<item-card
