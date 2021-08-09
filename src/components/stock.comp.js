@@ -17,11 +17,18 @@ export class Stock extends LitElement {
   }
 
   shouldUpdate(properties) {
+    // Render if first update
+    if (!properties.get('isLoading') && !properties.get('items')) return true;
+    // Don't re-render changed items if still loading
     return !properties.has('items') || !this.isLoading;
   }
 
   connectedCallback() {
     super.connectedCallback();
+    this.fetchData();
+  }
+
+  fetchData() {
     firebase
       .firestore()
       .collection('stock')
