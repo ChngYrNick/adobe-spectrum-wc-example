@@ -1,17 +1,15 @@
-import '../../../public/style.css';
-
-import '@webcomponents/webcomponentsjs/webcomponents-loader';
-import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter';
-import '../login-option.comp.js';
+import './providres/sign-in.provider.js';
 
 import {LitElement, html} from 'lit';
+import {customElement} from 'lit/decorators.js';
+
 import {
   facebookProvider,
   googleProvider,
 } from '../../services/firebase.service.js';
-
 import styles from './sign-in.styles.js';
 
+@customElement('my-app')
 export class SignIn extends LitElement {
   static styles = styles;
 
@@ -33,5 +31,3 @@ export class SignIn extends LitElement {
     `;
   }
 }
-
-window.customElements.define('my-app', SignIn);

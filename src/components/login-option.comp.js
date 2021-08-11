@@ -1,17 +1,16 @@
 import {LitElement, html} from 'lit';
+import {property, customElement} from 'lit/decorators.js';
+
 import {firebase} from '../services/firebase.service.js';
 import styles from './login-option.styles.js';
 
+@customElement('login-option')
 export class LoginOption extends LitElement {
   static styles = styles;
 
-  static get properties() {
-    return {
-      title: {type: String},
-      icon: {type: String},
-      provider: {type: Object},
-    };
-  }
+  @property() title = '';
+  @property() icon = '';
+  @property() provider = '';
 
   render() {
     return html`
@@ -34,5 +33,3 @@ export class LoginOption extends LitElement {
       });
   }
 }
-
-window.customElements.define('login-option', LoginOption);

@@ -1,20 +1,15 @@
 import {LitElement, html} from 'lit';
+import {property, customElement} from 'lit/decorators.js';
+
 import {firebase} from '../services/firebase.service.js';
 import styles from './stock.styles.js';
 
+@customElement('stock-elem')
 export class Stock extends LitElement {
   static styles = styles;
 
-  static properties = {
-    items: Array,
-    isLoading: Boolean,
-  };
-
-  constructor() {
-    super();
-    this.items = [];
-    this.isLoading = true;
-  }
+  @property() items = [];
+  @property() isLoading = true;
 
   shouldUpdate(properties) {
     // Render if first update
@@ -58,5 +53,3 @@ export class Stock extends LitElement {
     )}`;
   }
 }
-
-window.customElements.define('stock-elem', Stock);

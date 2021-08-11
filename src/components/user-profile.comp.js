@@ -1,4 +1,6 @@
 import {LitElement, html} from 'lit';
+import {property, customElement} from 'lit/decorators.js';
+
 import {firebase} from '../services/firebase.service.js';
 
 /**
@@ -9,23 +11,13 @@ import {firebase} from '../services/firebase.service.js';
  * @property {string} param.photoURL
  */
 
+@customElement('user-profile')
 export class UserProfile extends LitElement {
-  static properties = {
-    name: {type: String},
-    email: {type: String},
-    provider: {type: String},
-    photoURL: {type: String},
-    isLoading: {type: Boolean},
-  };
-
-  constructor() {
-    super();
-    this.name = '';
-    this.email = '';
-    this.provider = '';
-    this.photoURL = '';
-    this.isLoading = true;
-  }
+  @property() name = '';
+  @property() email = '';
+  @property() provider = '';
+  @property() photoURL = '';
+  @property() isLoading = true;
 
   connectedCallback() {
     super.connectedCallback();
@@ -70,5 +62,3 @@ export class UserProfile extends LitElement {
     `;
   }
 }
-
-window.customElements.define('user-profile', UserProfile);

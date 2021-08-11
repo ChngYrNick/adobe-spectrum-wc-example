@@ -1,14 +1,15 @@
 import {LitElement, html} from 'lit';
+import {property, customElement} from 'lit/decorators.js';
+
 import styles from './item-card.styles.js';
 
+@customElement('item-card')
 export class ItemCard extends LitElement {
   static styles = styles;
 
-  static properties = {
-    name: {type: String},
-    location: {type: String},
-    photoURL: {type: String},
-  };
+  @property() name = '';
+  @property() location = '';
+  @property() photoURL = '';
 
   render() {
     return html`
@@ -18,5 +19,3 @@ export class ItemCard extends LitElement {
     `;
   }
 }
-
-window.customElements.define('item-card', ItemCard);
