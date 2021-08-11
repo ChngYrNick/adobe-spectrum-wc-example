@@ -25,20 +25,20 @@ export class Stock extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.fetchData();
+    this.onItemsChanged();
+    this.fetchData().finally(() => (this.isLoading = false));
   }
 
-  fetchData() {
-    firestore
-      .getDocs('stock')
-      .then((querySnapshot) => {
-        this.items = querySnapshot.docs.map((doc) => ({
-          name: doc.data().name,
-          location: doc.data().location,
-          photoURL: doc.data().photoURL,
-        }));
-      })
-      .finally(() => (this.isLoading = false));
+  async fetchData() {
+    return firestore.getDocs('stock').then((querySnapshot) => {
+      this.items = querySnapshot.docs.map((doc) => ({...doc.data()}));
+    });
+  }
+
+  onItemsChanged() {
+    return firestore.onSnapshot(firestore.query('stock'), (querySnapshot) => {
+      this.items = querySnapshot.docs.map((doc) => ({...doc.data()}));
+    });
   }
 
   render() {
