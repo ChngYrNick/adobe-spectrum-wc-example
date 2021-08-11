@@ -1,8 +1,0 @@
-{
-    "name": "VMO",
-    "short_name": "VMO",
-    "start_url": ".",
-    "display": "standalone",
-    "background_color": "#fff",
-    "description": "The platform where you can exchange or buy pills"
-}
