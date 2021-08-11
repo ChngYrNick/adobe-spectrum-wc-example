@@ -14,7 +14,7 @@ import '../stock.comp.js';
 
 import {LitElement, html} from 'lit';
 
-import {firebase} from '../../services/firebase.service.js';
+import firebaseAuth from '../../services/firebase-auth.service.js';
 import styles from './home.styles.js';
 
 export class Home extends LitElement {
@@ -33,7 +33,7 @@ export class Home extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    firebase.auth().onAuthStateChanged((user) => {
+    firebaseAuth.onAuthStateChanged((user) => {
       const {host, protocol} = window.location;
       if (user) return (this.isAuth = true);
       window.location.replace(`${protocol}//${host}/sign-in`);

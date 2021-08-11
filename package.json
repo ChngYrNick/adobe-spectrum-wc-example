@@ -22,7 +22,7 @@
         "@spectrum-web-components/menu": "^0.8.10",
         "@spectrum-web-components/progress-bar": "^0.3.3",
         "@spectrum-web-components/theme": "^0.8.11",
-        "firebase": "^8.8.0",
+        "firebase": "^9.0.0-beta.8",
         "lit": "^2.0.0-rc.1",
         "lit-element": "^3.0.0-rc.1",
         "webpack": "^5.48.0"

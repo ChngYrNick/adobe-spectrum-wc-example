@@ -5,10 +5,8 @@ import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter';
 import '../login-option.comp.js';
 
 import {LitElement, html} from 'lit';
-import {
-  facebookProvider,
-  googleProvider,
-} from '../../services/firebase.service.js';
+import firebaseAuth from '../../services/firebase-auth.service.js';
+const {googleProvider, facebookProvider} = firebaseAuth;
 
 import styles from './sign-in.styles.js';
 

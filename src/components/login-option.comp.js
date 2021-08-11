@@ -1,5 +1,5 @@
 import {LitElement, html} from 'lit';
-import {firebase} from '../services/firebase.service.js';
+import firebaseAuth from '../services/firebase-auth.service.js';
 import styles from './login-option.styles.js';
 
 export class LoginOption extends LitElement {
@@ -22,8 +22,7 @@ export class LoginOption extends LitElement {
 
   _onClick(e) {
     e.preventDefault();
-    firebase
-      .auth()
+    firebaseAuth
       .signInWithPopup(this.provider)
       .then(() => {
         const {host, protocol} = window.location;

@@ -1,5 +1,5 @@
 import {LitElement, html} from 'lit';
-import {firebase} from '../services/firebase.service.js';
+import firestore from '../services/firestore.service.js';
 import styles from './stock.styles.js';
 
 export class Stock extends LitElement {
@@ -29,10 +29,8 @@ export class Stock extends LitElement {
   }
 
   fetchData() {
-    firebase
-      .firestore()
-      .collection('stock')
-      .get()
+    firestore
+      .getDocs('stock')
       .then((querySnapshot) => {
         this.items = querySnapshot.docs.map((doc) => ({
           name: doc.data().name,
