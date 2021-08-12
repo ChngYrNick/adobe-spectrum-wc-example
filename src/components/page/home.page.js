@@ -17,7 +17,7 @@ export class Home extends LitElement {
     firebase.auth().onAuthStateChanged((user) => {
       const {host, protocol} = window.location;
       if (user) return (this.isAuth = true);
-      window.location.replace(`${protocol}//${host}/sign-in`);
+      window.location.replace(`${protocol}//${host}/#sign-in`);
     });
   }
 
