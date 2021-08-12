@@ -1,8 +1,0 @@
-@font-face {
-  font-family: 'CascadiaCode';
-  src: url('CascadiaCode.ttf');
-}
-
-body {
-  font-family: CascadiaCode, sans-serif;
-}

@@ -1,12 +1,10 @@
-import './providres/home.provider.js';
-
 import {LitElement, html} from 'lit';
 import {property, customElement} from 'lit/decorators.js';
 
 import {firebase} from '../../services/firebase.service.js';
 import styles from './home.styles.js';
 
-@customElement('my-app')
+@customElement('home-page')
 export class Home extends LitElement {
   @property() isAuth = false;
 

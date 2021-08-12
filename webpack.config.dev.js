@@ -10,8 +10,7 @@ const baseConfig = require('./webpack.config.base.js');
 module.exports = merge(baseConfig, {
   mode: 'development',
   entry: {
-    home: './src/components/page/home.page.js',
-    signin: './src/components/page/sign-in.page.js',
+    main: './src/index.js',
   },
   output: {
     filename: './scripts/[name].bundle.js',
@@ -33,12 +32,7 @@ module.exports = merge(baseConfig, {
     new HtmlWebPackPlugin({
       template: './public/index.html',
       filename: './index.html',
-      chunks: ['home'],
-    }),
-    new HtmlWebPackPlugin({
-      template: './public/index.html',
-      filename: './sign-in/index.html',
-      chunks: ['signin'],
+      chunks: ['main'],
     }),
   ],
   devServer: {
