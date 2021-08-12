@@ -1,3 +1,4 @@
+import '../public/styles.css';
 import '@spectrum-web-components/styles/all-large-light.css';
 
 import '@webcomponents/webcomponentsjs/webcomponents-loader';
