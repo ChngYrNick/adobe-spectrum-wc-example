@@ -1,7 +1,8 @@
 import {LitElement, html} from 'lit';
+import {Router} from '@vaadin/router';
 import {property, customElement} from 'lit/decorators.js';
 
-import {firebase} from '../../services/firebase.service.js';
+import {firebase} from '../../../services/firebase.service.js';
 import styles from './home.styles.js';
 
 @customElement('home-page')
@@ -15,9 +16,8 @@ export class Home extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     firebase.auth().onAuthStateChanged((user) => {
-      const {host, protocol} = window.location;
       if (user) return (this.isAuth = true);
-      window.location.replace(`${protocol}//${host}/sign-in`);
+      Router.go({pathname: '/sign-in'});
     });
   }
 

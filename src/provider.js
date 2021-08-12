@@ -11,10 +11,10 @@ import '@spectrum-web-components/menu/sp-menu-divider.js';
 import '@spectrum-web-components/action-menu/sp-action-menu.js';
 import '@spectrum-web-components/progress-bar/sp-progress-bar.js';
 
-import './components/user-profile.comp.js';
-import './components/item-card.comp.js';
-import './components/stock.comp.js';
-import './components/login-option.comp.js';
+import './components/page/home/user-profile.comp.js';
+import './components/page/home/item-card.comp.js';
+import './components/page/home/stock.comp.js';
+import './components/page/home/home.page.js';
 
-import './components/page/home.page.js';
-import './components/page/sign-in.page.js';
+import './components/page/sign-in/login-option.comp.js';
+import './components/page/sign-in/sign-in.page.js';

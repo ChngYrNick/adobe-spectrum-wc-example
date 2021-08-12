@@ -4,7 +4,7 @@ import {customElement} from 'lit/decorators.js';
 import {
   facebookProvider,
   googleProvider,
-} from '../../services/firebase.service.js';
+} from '../../../services/firebase.service.js';
 
 @customElement('sign-in-page')
 export class SignIn extends LitElement {

@@ -1,7 +1,8 @@
 import {LitElement, html} from 'lit';
+import {Router} from '@vaadin/router';
 import {property, customElement} from 'lit/decorators.js';
 
-import {firebase} from '../services/firebase.service.js';
+import {firebase} from '../../../services/firebase.service.js';
 
 @customElement('login-option')
 export class LoginOption extends LitElement {
@@ -23,12 +24,7 @@ export class LoginOption extends LitElement {
     firebase
       .auth()
       .signInWithPopup(this.provider)
-      .then(() => {
-        const {host, protocol} = window.location;
-        window.location.replace(`${protocol}//${host}/`);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      .then(Router.go.bind(null, {pathname: '/'}))
+      .catch(console.log);
   }
 }

@@ -1,7 +1,7 @@
 import {LitElement, html} from 'lit';
 import {property, customElement} from 'lit/decorators.js';
 
-import {firebase} from '../services/firebase.service.js';
+import {firebase} from '../../../services/firebase.service.js';
 import styles from './stock.styles.js';
 
 @customElement('stock-elem')
