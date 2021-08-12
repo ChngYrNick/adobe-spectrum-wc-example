@@ -9,9 +9,9 @@
     },
     "redirects": [
         {
-            "source": "/**",
+            "regex": "/.*",
             "destination": "/",
-            "type": 301
+            "type": 302
         }
   ]
 }
