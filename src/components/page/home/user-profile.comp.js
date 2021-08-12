@@ -1,7 +1,7 @@
 import {LitElement, html} from 'lit';
 import {property, customElement} from 'lit/decorators.js';
 
-import {firebase} from '../../../services/firebase.service.js';
+import firebaseAuth from '../../../services/firebase-auth.service.js';
 
 /**
  * @typedef UserDTO
@@ -21,7 +21,7 @@ export class UserProfile extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    firebase.auth().onAuthStateChanged((user) => {
+    firebaseAuth.onAuthStateChanged((user) => {
       if (!user) return;
       this.isLoading = false;
       this.setUser(user);
@@ -40,10 +40,7 @@ export class UserProfile extends LitElement {
   }
 
   _onClick() {
-    firebase
-      .auth()
-      .signOut()
-      .catch((error) => console.log(error));
+    firebaseAuth.signOut().catch((error) => console.log(error));
   }
 
   render() {

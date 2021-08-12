@@ -1,7 +1,7 @@
 import {LitElement, html} from 'lit';
 import {property, customElement} from 'lit/decorators.js';
 
-import {firebase} from '../../../services/firebase.service.js';
+import firestore from '../../../services/firestore.service.js';
 import styles from './stock.styles.js';
 
 @customElement('stock-elem')
@@ -20,22 +20,20 @@ export class Stock extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.fetchData();
+    this.onItemsChanged();
+    this.fetchData().finally(() => (this.isLoading = false));
   }
 
-  fetchData() {
-    firebase
-      .firestore()
-      .collection('stock')
-      .get()
-      .then((querySnapshot) => {
-        this.items = querySnapshot.docs.map((doc) => ({
-          name: doc.data().name,
-          location: doc.data().location,
-          photoURL: doc.data().photoURL,
-        }));
-      })
-      .finally(() => (this.isLoading = false));
+  async fetchData() {
+    return firestore.getDocs('stock').then((querySnapshot) => {
+      this.items = querySnapshot.docs.map((doc) => ({...doc.data()}));
+    });
+  }
+
+  onItemsChanged() {
+    return firestore.onSnapshot(firestore.query('stock'), (querySnapshot) => {
+      this.items = querySnapshot.docs.map((doc) => ({...doc.data()}));
+    });
   }
 
   render() {

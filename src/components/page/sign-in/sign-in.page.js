@@ -1,10 +1,9 @@
 import {LitElement, html} from 'lit';
 import {customElement} from 'lit/decorators.js';
 
-import {
-  facebookProvider,
-  googleProvider,
-} from '../../../services/firebase.service.js';
+import firebaseAuth from '../../../services/firebase-auth.service.js';
+
+const {googleProvider, facebookProvider} = firebaseAuth;
 
 @customElement('sign-in-page')
 export class SignIn extends LitElement {

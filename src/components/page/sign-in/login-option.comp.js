@@ -2,7 +2,7 @@ import {LitElement, html} from 'lit';
 import {Router} from '@vaadin/router';
 import {property, customElement} from 'lit/decorators.js';
 
-import {firebase} from '../../../services/firebase.service.js';
+import firebaseAuth from '../../../services/firebase-auth.service.js';
 
 @customElement('login-option')
 export class LoginOption extends LitElement {
@@ -21,10 +21,9 @@ export class LoginOption extends LitElement {
 
   _onClick(e) {
     e.preventDefault();
-    firebase
-      .auth()
+    firebaseAuth
       .signInWithPopup(this.provider)
       .then(Router.go.bind(null, {pathname: '/'}))
-      .catch(console.log);
+      .catch((err) => console.log(err));
   }
 }
