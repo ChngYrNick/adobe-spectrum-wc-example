@@ -11,6 +11,7 @@ router.setRoutes([
     children: [
       {path: '', component: 'home-page'},
       {path: '/sign-in', component: 'sign-in-page'},
+      {path: '/upload', component: 'upload-page'},
     ],
   },
 ]);

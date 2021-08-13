@@ -1461,6 +1461,14 @@
     "@spectrum-web-components/shared" "^0.12.7"
     tslib "^2.0.0"
 
+"@spectrum-web-components/dropzone@^0.7.7":
+  version "0.7.7"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/dropzone/-/dropzone-0.7.7.tgz#b448844e97f54b987e95326fe050861473d82502"
+  integrity sha512-ZJNAJ6oa300okBYV1u0xRuW+k7pv96bC2Wzts+/BbfaDSNi99dgs0kO7+0U11EndkqWxbn4w+r43ty0xaHOuEg==
+  dependencies:
+    "@spectrum-web-components/base" "^0.4.5"
+    tslib "^2.0.0"
+
 "@spectrum-web-components/field-label@^0.5.4":
   version "0.5.4"
   resolved "https://registry.yarnpkg.com/@spectrum-web-components/field-label/-/field-label-0.5.4.tgz#987a393131060a29afbd7ae9d4c80d96852961c7"
@@ -1515,6 +1523,24 @@
   integrity sha512-xfrLwM5xn8MFZ8nfZYSo382H5gSyIZURy5k6m7R1JMvS6o1MDDtfPoXgam122B+9Thfd+3YZbMDtgWY/AIjfgw==
   dependencies:
     "@spectrum-web-components/base" "^0.4.5"
+    tslib "^2.0.0"
+
+"@spectrum-web-components/illustrated-message@^0.6.10":
+  version "0.6.10"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/illustrated-message/-/illustrated-message-0.6.10.tgz#14012a5ee415c2d668c4d4028b620b39f534c3f3"
+  integrity sha512-rK1TdYE8v99ZMUfvnan+VInUMY9WxUK17LXW2fW0AWgaOUCwMgbflOY9sxGErndFN0LJky7z3GqlXBi9UnnDLA==
+  dependencies:
+    "@spectrum-web-components/base" "^0.4.5"
+    "@spectrum-web-components/styles" "^0.9.10"
+    tslib "^2.0.0"
+
+"@spectrum-web-components/link@^0.9.4":
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/@spectrum-web-components/link/-/link-0.9.4.tgz#44f7622f69ad9cec8bf5ceb3bc64cb738d99abc5"
+  integrity sha512-B3OPSRcDg08pYK30xANrEhTY3l5t/k2c3kN4NmizXGrrRcWEavtb06aNRInvlcW/LGXyLecO0rZGXuahZ+gsEA==
+  dependencies:
+    "@spectrum-web-components/base" "^0.4.5"
+    "@spectrum-web-components/shared" "^0.12.7"
     tslib "^2.0.0"
 
 "@spectrum-web-components/menu@^0.8.10":
@@ -1960,6 +1986,11 @@
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
+
+abab@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.5.tgz#c0b678fb32d60fc1219c784d6a826fe385aeb79a"
+  integrity sha512-9IK9EadsbHo6jLWIpxpR6pL0sazTXV6+SQv25ZB+F7Bj9mJNaOc4nCRabwd5M/JwmUa8idz6Eci6eKfJryPs6Q==
 
 accepts@~1.3.4, accepts@~1.3.5, accepts@~1.3.7:
   version "1.3.7"
@@ -4099,6 +4130,13 @@ iconv-lite@0.4.24, iconv-lite@^0.4.24:
   integrity sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
+
+iconv-lite@^0.6.2:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.6.3.tgz#a52f80bf38da1952eb5c681790719871a1a72501"
+  integrity sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==
+  dependencies:
+    safer-buffer ">= 2.1.2 < 3.0.0"
 
 icss-replace-symbols@^1.1.0:
   version "1.1.0"
@@ -6385,7 +6423,7 @@ safe-regex@^1.1.0:
   dependencies:
     ret "~0.1.10"
 
-"safer-buffer@>= 2.1.2 < 3":
+"safer-buffer@>= 2.1.2 < 3", "safer-buffer@>= 2.1.2 < 3.0.0":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
@@ -6697,6 +6735,15 @@ source-map-js@^0.6.2:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-0.6.2.tgz#0bb5de631b41cfbda6cfba8bd05a80efdfd2385e"
   integrity sha512-/3GptzWzu0+0MBQFrDKzw/DvvMTUORvgY6k6jd/VS6iCR4RDTKWH6v6WPwQoUO8667uQEf9Oe38DxAYWY5F/Ug==
+
+source-map-loader@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/source-map-loader/-/source-map-loader-3.0.0.tgz#f2a04ee2808ad01c774dea6b7d2639839f3b3049"
+  integrity sha512-GKGWqWvYr04M7tn8dryIWvb0s8YM41z82iQv01yBtIylgxax0CwvSy6gc2Y02iuXwEfGWRlMicH0nvms9UZphw==
+  dependencies:
+    abab "^2.0.5"
+    iconv-lite "^0.6.2"
+    source-map-js "^0.6.2"
 
 source-map-resolve@^0.5.0:
   version "0.5.3"
