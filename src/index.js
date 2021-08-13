@@ -12,6 +12,7 @@ router.setRoutes([
       {path: '', component: 'home-page'},
       {path: '/sign-in', component: 'sign-in-page'},
       {path: '/upload', component: 'upload-page'},
+      {path: '/user', component: 'user-page'},
     ],
   },
 ]);

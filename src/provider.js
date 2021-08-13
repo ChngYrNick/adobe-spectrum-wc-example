@@ -15,7 +15,6 @@ import '@spectrum-web-components/dropzone/sp-dropzone.js';
 import '@spectrum-web-components/link/sp-link.js';
 import '@spectrum-web-components/illustrated-message/sp-illustrated-message.js';
 
-import './components/page/home/user-profile.comp.js';
 import './components/page/home/item-card.comp.js';
 import './components/page/home/stock.comp.js';
 import './components/page/home/home.page.js';
@@ -26,3 +25,6 @@ import './components/page/sign-in/sign-in.page.js';
 import './components/page/upload/dropzone.comp.js';
 import './components/page/upload/upload.page.js';
 import './components/page/upload/gallery.comp.js';
+
+import './components/page/user/user.page.js';
+import './components/page/user/user-profile.comp.js';

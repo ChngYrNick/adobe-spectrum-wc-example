@@ -2,6 +2,7 @@ import {LitElement, html} from 'lit';
 import {property, customElement} from 'lit/decorators.js';
 
 import firebaseAuth from '../../../services/firebase-auth.service.js';
+import {Router} from '@vaadin/router';
 
 /**
  * @typedef UserDTO
@@ -53,6 +54,12 @@ export class UserProfile extends LitElement {
         <img slot="cover-photo" src=${this.photoURL} alt="Profile Image" />
         <div slot="footer">${this.provider}</div>
         <sp-action-menu slot="actions" placement="bottom-end">
+          <sp-menu-item @click=${Router.go.bind(null, {pathname: '/'})}>
+            Home
+          </sp-menu-item>
+          <sp-menu-item @click=${Router.go.bind(null, {pathname: '/upload'})}>
+            Upload
+          </sp-menu-item>
           <sp-menu-item @click=${this._onClick}>Logout</sp-menu-item>
         </sp-action-menu>
       </sp-card>

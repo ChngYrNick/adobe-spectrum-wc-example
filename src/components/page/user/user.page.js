@@ -1,12 +1,12 @@
 import {LitElement, html} from 'lit';
 import {Router} from '@vaadin/router';
-import {property, customElement} from 'lit/decorators.js';
+import {customElement, property} from 'lit/decorators.js';
 
 import firebaseAuth from '../../../services/firebase-auth.service.js';
-import styles from './home.styles.js';
+import styles from './user.styles.js';
 
-@customElement('home-page')
-export class Home extends LitElement {
+@customElement('user-page')
+export class User extends LitElement {
   @property() isAuth = false;
 
   static styles = styles;
@@ -21,11 +21,6 @@ export class Home extends LitElement {
 
   render() {
     if (!this.isAuth) return;
-    return html`
-      <label @click=${Router.go.bind(null, {pathname: '/user'})}>
-        <sp-link href="javascript:;">Go to user profile</sp-link>
-      </label>
-      <stock-elem></stock-elem>
-    `;
+    return html` <user-profile></user-profile> `;
   }
 }
